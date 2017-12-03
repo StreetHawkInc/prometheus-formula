@@ -46,3 +46,10 @@ prometheus:
       source_hash: sha256=dbbd44a5a4b4a22ba338b9732c014587bc11513a5d6d2e3e519fc313b1cc46d4
       config: |
         RABBIT_CAPABILITIES=no_sort,bert
+    riak:
+      source: https://github.com/anti1869/riak_exporter.git
+      args:
+        address: 0.0.0.0
+        port: 9097
+        riak: http://localhost:8098/stats
+        endpoint: /metrics

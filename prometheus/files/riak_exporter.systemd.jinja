@@ -1,0 +1,18 @@
+[Unit]
+Description=Prometheus riak exporter
+Documentation=https://github.com/anti1869/riak_exporter.git
+Wants=basic.target
+After=basic.target network.target
+
+[Service]
+User=prometheus
+Group=prometheus
+EnvironmentFile=/etc/default/riak_exporter
+ExecStart=/usr/local/bin/riak_exporter $ARGS
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=42s
+
+[Install]
+WantedBy=multi-user.target
