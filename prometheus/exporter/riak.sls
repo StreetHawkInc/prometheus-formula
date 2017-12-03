@@ -13,7 +13,7 @@ riak_exporter_defaults:
     - source: salt://prometheus/files/default-riak_exporter.jinja
     - template: jinja
     - defaults:
-        config: {{prometheus.exporter.riak.config.args}}
+        config: {{prometheus.exporters.riak.config.args}}
 
 riak_exporter_service_unit:
   file.managed:
