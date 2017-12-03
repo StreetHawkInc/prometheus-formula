@@ -1,2 +1,2 @@
 # Set the command-line arguments to pass to the server.
-ARGS=""
+ARGS="{{ ('--' + key + '=' + value) for key, value in config.items() }} "
