@@ -26,7 +26,7 @@ node_exporter_defaults:
     - source: salt://prometheus/files/default-node_exporter.jinja
     - template: jinja
     - defaults:
-        config: {{ prometheus.exporter.node.args }}
+        config: {{ prometheus.exporter.node.get('args', {}) }}
 
 node_exporter_service_unit:
   file.managed:
