@@ -18,24 +18,6 @@ pushgateway_bin_link:
     - require:
       - archive: pushgateway_tarball
 
-pushgateway_config:
-  file.serialize:
-    - name: {{ prometheus.pushgateway.args.config_file }}
-    - user: {{ prometheus.user }}
-    - group: {{ prometheus.group }}
-    - dataset_pillar: prometheus:pushgateway:config
-
-pushgateway_config:
-  file.managed:
-    - name: {{ prometheus.pushgateway.args.config_file }}
-    - source: salt://prometheus/files/config.jinja
-    - template: jinja
-    - user: {{ prometheus.user }}
-    - group: {{ prometheus.group }}
-    - makedirs: True
-    - defaults:
-        data: {{ prometheus.pushgateway.config }}
-
 pushgateway_defaults:
   file.managed:
     - name: /etc/default/pushgateway
@@ -75,5 +57,4 @@ pushgateway_service:
     - reload: True
     - watch:
       - file: pushgateway_service_unit
-      - file: pushgateway_config
       - file: pushgateway_bin_link

@@ -24,6 +24,7 @@ prometheus:
     install_dir: /opt
     source: https://github.com/prometheus/pushgateway/releases/download/v0.4.0/pushgateway-0.4.0.linux-amd64.tar.gz
     source_hash: sha256=e1ce58b3f2c44816e748278434d6fc91e530da77dcc34b1246e1a0f25314831f
+    config: {}
     args:
       config_file: /etc/pushgateway/pushgateway.yml
       storage:
