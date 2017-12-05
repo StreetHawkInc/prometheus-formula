@@ -19,7 +19,16 @@ prometheus:
       config_file: /etc/alertmanager/alertmanager.yml
       storage:
         path: /var/lib/alertmanager
-  exporter:
+  pushgateway:
+    version: 0.4.0.linux-amd64
+    install_dir: /opt
+    source: https://github.com/prometheus/pushgateway/releases/download/v0.4.0/pushgateway-0.4.0.linux-amd64.tar.gz
+    source_hash: sha256=e1ce58b3f2c44816e748278434d6fc91e530da77dcc34b1246e1a0f25314831f
+    args:
+      config_file: /etc/pushgateway/pushgateway.yml
+      storage:
+        path: /var/lib/pushgateway
+  exporters:
     node:
       version: 0.13.0.linux-amd64
       install_dir: /opt

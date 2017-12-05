@@ -5,18 +5,18 @@ include:
 
 rabbitmq_exporter_tarball:
   archive.extracted:
-    - name: {{ prometheus.exporter.rabbitmq.install_dir }}
-    - source: {{ prometheus.exporter.rabbitmq.source }}
-    - source_hash: {{ prometheus.exporter.rabbitmq.source_hash }}
+    - name: {{ prometheus.exporters.rabbitmq.install_dir }}
+    - source: {{ prometheus.exporters.rabbitmq.source }}
+    - source_hash: {{ prometheus.exporters.rabbitmq.source_hash }}
     - user: {{ prometheus.user }}
     - group: {{ prometheus.group }}
     - archive_format: tar
-    - if_missing: {{ prometheus.exporter.rabbitmq.version_path }}
+    - if_missing: {{ prometheus.exporters.rabbitmq.version_path }}
 
 rabbitmq_exporter_bin_link:
   file.symlink:
     - name: /usr/bin/rabbitmq_exporter
-    - target: {{ prometheus.exporter.rabbitmq.version_path }}/rabbitmq_exporter
+    - target: {{ prometheus.exporters.rabbitmq.version_path }}/rabbitmq_exporter
     - require:
       - archive: rabbitmq_exporter_tarball
 
@@ -27,7 +27,7 @@ rabbitmq_exporter_defaults:
     - template: jinja
     - defaults:
         config: |
-          {{prometheus.exporter.rabbitmq.config}}
+          {{prometheus.exporters.rabbitmq.config}}
 
 rabbitmq_exporter_service_unit:
   file.managed:

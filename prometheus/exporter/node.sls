@@ -5,18 +5,18 @@ include:
 
 node_exporter_tarball:
   archive.extracted:
-    - name: {{ prometheus.exporter.node.install_dir }}
-    - source: {{ prometheus.exporter.node.source }}
-    - source_hash: {{ prometheus.exporter.node.source_hash }}
+    - name: {{ prometheus.exporters.node.install_dir }}
+    - source: {{ prometheus.exporters.node.source }}
+    - source_hash: {{ prometheus.exporters.node.source_hash }}
     - user: {{ prometheus.user }}
     - group: {{ prometheus.group }}
     - archive_format: tar
-    - if_missing: {{ prometheus.exporter.node.version_path }}
+    - if_missing: {{ prometheus.exporters.node.version_path }}
 
 node_exporter_bin_link:
   file.symlink:
     - name: /usr/bin/node_exporter
-    - target: {{ prometheus.exporter.node.version_path }}/node_exporter
+    - target: {{ prometheus.exporters.node.version_path }}/node_exporter
     - require:
       - archive: node_exporter_tarball
 

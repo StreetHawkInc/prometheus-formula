@@ -5,18 +5,18 @@ include:
 
 blackbox_exporter_tarball:
   archive.extracted:
-    - name: {{ prometheus.exporter.blackbox.install_dir }}
-    - source: {{ prometheus.exporter.blackbox.source }}
-    - source_hash: {{ prometheus.exporter.blackbox.source_hash }}
+    - name: {{ prometheus.exporters.blackbox.install_dir }}
+    - source: {{ prometheus.exporters.blackbox.source }}
+    - source_hash: {{ prometheus.exporters.blackbox.source_hash }}
     - user: {{ prometheus.user }}
     - group: {{ prometheus.group }}
     - archive_format: tar
-    - if_missing: {{ prometheus.exporter.blackbox.version_path }}
+    - if_missing: {{ prometheus.exporters.blackbox.version_path }}
 
 blackbox_exporter_bin_link:
   file.symlink:
     - name: /usr/bin/blackbox_exporter
-    - target: {{ prometheus.exporter.blackbox.version_path }}/blackbox_exporter
+    - target: {{ prometheus.exporters.blackbox.version_path }}/blackbox_exporter
     - require:
       - archive: blackbox_exporter_tarball
 
@@ -26,7 +26,7 @@ blackbox_exporter_defaults:
     - source: salt://prometheus/files/default-blackbox_exporter.jinja
     - template: jinja
     - defaults:
-        config_file: {{ prometheus.exporter.blackbox.args.config_file }}
+        config_file: {{ prometheus.exporters.blackbox.args.config_file }}
 
 blackbox_exporter_service_unit:
   file.managed:
