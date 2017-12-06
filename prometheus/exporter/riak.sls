@@ -9,7 +9,7 @@ riak_exporter_pip:
 
 riak_exporter_defaults:
   file.managed:
-    - name: /etc/default/rabbitmq_exporter
+    - name: /etc/default/riak_exporter
     - source: salt://prometheus/files/default-riak_exporter.jinja
     - template: jinja
     - defaults:
