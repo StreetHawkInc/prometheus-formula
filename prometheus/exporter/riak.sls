@@ -5,7 +5,7 @@ include:
 
 riak_exporter_pip:
   pip.installed:
-    - name: https://github.com/anti1869/riak_exporter.git
+    - name: git+https://github.com/anti1869/riak_exporter.git
 
 riak_exporter_defaults:
   file.managed:
