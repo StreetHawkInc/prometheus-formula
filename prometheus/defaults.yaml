@@ -63,4 +63,3 @@ prometheus:
         port: 9197
         riak: http://localhost:8098/stats
         endpoint: /metrics
-        args: {}

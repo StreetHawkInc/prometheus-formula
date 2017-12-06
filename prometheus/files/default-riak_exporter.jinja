@@ -1,1 +1,1 @@
-ARGS="{%- for arg, value in args.values() -%}--{{arg}}={{value}} {%-endfor-%}"
+ARGS="{%- for arg, value in config.values() -%}--{{arg}}={{value}} {%-endfor-%}"
