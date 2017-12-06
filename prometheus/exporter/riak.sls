@@ -35,4 +35,4 @@ riak_exporter_service:
     - watch:
       - file: riak_exporter_service_unit
       - file: riak_exporter_defaults
-      - file: riak_exporter_pip
+      - pip: riak_exporter_pip
