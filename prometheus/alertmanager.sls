@@ -19,15 +19,15 @@ alertmanager_bin_link:
       - archive: alertmanager_tarball
 
 alertmanager_config:
-  file.managed:
-    - name: {{ prometheus.alertmanager.args.config_file }}
+  file.serialize:
+    - name: {{ prometheus.alertmanager.args.get('config.file') }}
     - source: salt://prometheus/files/default-alertmanager.jinja
     - template: jinja
     - user: {{ prometheus.user }}
     - group: {{ prometheus.group }}
     - makedirs: True
-    - defaults:
-        data: {{ prometheus.alertmanager.args }}
+    - dataset_pillar: prometheus:alertmanager:config
+    - formatter: yaml
 
 alertmanager_defaults:
   file.managed:
@@ -35,12 +35,11 @@ alertmanager_defaults:
     - source: salt://prometheus/files/default-alertmanager.jinja
     - template: jinja
     - defaults:
-        config_file: {{ prometheus.alertmanager.args.config_file }}
-        storage_path: {{ prometheus.alertmanager.args.storage.path }}
+        config: {{ prometheus.alertmanager.args }}
 
 alertmanager_storage_path:
   file.directory:
-    - name: {{ prometheus.alertmanager.args.storage.path }}
+    - name: {{ prometheus.alertmanager.args.get('storage.path') }}
     - user: {{ prometheus.user }}
     - group: {{ prometheus.group }}
     - makedirs: True

@@ -1,5 +1,5 @@
 # Set the command-line arguments to pass to the server.
-ARGS="{% for arg, value in config.items() %} --{{arg}}={{value}} {%endfor%}"
+ARGS="{% for arg, value in config.items() %} -{{arg}}={{value}} {%endfor%}"
 
 # The alert manager supports the following options:
 #  -config.file string
