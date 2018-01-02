@@ -10,5 +10,5 @@
 {% do prometheus.exporters.blackbox.update({'version_path': prometheus.exporters.blackbox.install_dir ~ "/blackbox_exporter-" ~ prometheus.exporters.blackbox.version}) %}
 {% do prometheus.exporters.haproxy.update({'version_path': prometheus.exporters.haproxy.install_dir ~ "/haproxy_exporter-" ~ prometheus.exporters.haproxy.version}) %}
 {% do prometheus.exporters.rabbitmq.update({'version_path': prometheus.exporters.rabbitmq.install_dir ~ "/rabbitmq_exporter-" ~ prometheus.exporters.rabbitmq.version}) %}
-{% do prometheus.exporters.postgres.update({'version_path': prometheus.exporters.postgres.install_dir ~ "/postgres_exporter-" ~ prometheus.exporters.postgres.version}) %}
+{% do prometheus.exporters.postgres.update({'version_path': prometheus.exporters.postgres.install_dir ~ "/postgres_exporter_" ~ prometheus.exporters.postgres.version}) %}
 
