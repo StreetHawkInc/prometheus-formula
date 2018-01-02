@@ -5,8 +5,8 @@ Wants=basic.target
 After=basic.target network.target
 
 [Service]
-User=prometheus
-Group=prometheus
+User=postgres
+Group=postgres
 EnvironmentFile=/etc/default/postgres_exporter
 ExecStart=/usr/bin/postgres_exporter $ARGS
 ExecReload=/bin/kill -HUP $MAINPID
