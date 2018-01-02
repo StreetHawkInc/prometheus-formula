@@ -63,6 +63,7 @@ prometheus:
         riak: http://localhost:8098/stats
         endpoint: /metrics
     postgres:
+      install_dir: /opt
       version: 0.4.1_linux-amd64
       source: https://github.com/wrouesnel/postgres_exporter/releases/download/v0.4.1/postgres_exporter_v0.4.1_linux-amd64.tar.gz
       source_hash: sha256=219c2c116cb496d54ddbd23f392a38c3496ab8e7118dfbf8b7c0b21593dedbfd
