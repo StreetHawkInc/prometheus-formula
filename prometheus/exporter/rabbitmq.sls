@@ -27,7 +27,7 @@ rabbitmq_exporter_defaults:
     - template: jinja
     - defaults:
         config: |
-          {{prometheus.exporters.rabbitmq.config}}
+            {{prometheus.exporters.rabbitmq.config}}
 
 rabbitmq_exporter_service_unit:
   file.managed:
