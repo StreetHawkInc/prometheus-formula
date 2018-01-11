@@ -23,11 +23,7 @@ rabbitmq_exporter_bin_link:
 rabbitmq_exporter_defaults:
   file.managed:
     - name: /etc/default/rabbitmq_exporter
-    - source: salt://prometheus/files/default-rabbitmq_exporter.jinja
-    - template: jinja
-    - defaults:
-        config: |
-            {{prometheus.exporters.rabbitmq.config}}
+    - contents_pillar: prometheus:exporters:rabbitmq:config
 
 rabbitmq_exporter_service_unit:
   file.managed:
