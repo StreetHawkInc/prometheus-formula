@@ -68,3 +68,10 @@ prometheus:
       source: https://github.com/wrouesnel/postgres_exporter/releases/download/v0.4.1/postgres_exporter_v0.4.1_linux-amd64.tar.gz
       source_hash: sha256=219c2c116cb496d54ddbd23f392a38c3496ab8e7118dfbf8b7c0b21593dedbfd
       args: ''
+    solr:
+      version: 0.0.12.linux-amd64
+      install_dir: /opt
+      source: https://github.com/noony/prometheus-solr-exporter/releases/download/v0.0.12/prometheus-solr-exporter-0.0.12.linux-amd64.tar.gz
+      source_hash: sha256=58877e5cf04b981129bca7995bf207979c686ee76fefd21ba1d9858d1caf4494
+      args:
+        scrape_uri: 'unix:/run/haproxy/admin.sock'
