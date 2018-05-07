@@ -6,13 +6,14 @@ include:
 
 redis_exporter_tarball:
   archive.extracted:
-    - name: {{ prometheus.exporters.redis.install_dir }}
+    - name: {{ prometheus.exporters.redis.version_path}}
     - source: {{ prometheus.exporters.redis.source }}
     - source_hash: {{ prometheus.exporters.redis.source_hash }}
     - user: {{ prometheus.user }}
     - group: {{ prometheus.group }}
     - archive_format: tar
     - if_missing: {{ prometheus.exporters.redis.version_path }}
+    - enforce_toplevel: False
 
 redis_exporter_bin_link:
   file.symlink:
@@ -25,9 +26,6 @@ redis_exporter_defaults:
   file.managed:
     - name: /etc/default/redis_exporter
     - source: salt://prometheus/files/default-redis_exporter.jinja
-    - template: jinja
-    - defaults:
-        scrape_uri: {{ prometheus.exporters.redis.args.scrape_uri }}
 
 redis_exporter_service_unit:
   file.managed:

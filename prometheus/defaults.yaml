@@ -78,5 +78,6 @@ prometheus:
     redis:
       version: 0.17.2.linux-amd64
       source: https://github.com/oliver006/redis_exporter/releases/download/v0.17.2/redis_exporter-v0.17.2.linux-amd64.tar.gz
+      source_hash: sha256=5f1e9a7b59ef3b82e08052c6b00bfaaa19d55ad5b748e139419afd7ab2909809
       install_dir: /opt
-      args: ''
+      args: '--debug'
