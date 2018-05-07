@@ -75,3 +75,8 @@ prometheus:
       source_hash: sha256=58877e5cf04b981129bca7995bf207979c686ee76fefd21ba1d9858d1caf4494
       args:
         scrape_uri: 'unix:/run/haproxy/admin.sock'
+    redis:
+      version: 0.17.2.linux-amd64
+      source: https://github.com/oliver006/redis_exporter/releases/download/v0.17.2/redis_exporter-v0.17.2.linux-amd64.tar.gz
+      install_dir: /opt
+      args: ''

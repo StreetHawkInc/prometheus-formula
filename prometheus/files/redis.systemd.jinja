@@ -1,0 +1,18 @@
+[Unit]
+Description=Prometheus redis exporter
+Documentation=https://github.com/oliver006/redis_exporter.git
+Wants=basic.target
+After=basic.target network.target
+
+[Service]
+User=prometheus
+Group=prometheus
+EnvironmentFile=/etc/default/redis_exporter
+ExecStart=/usr/bin/redis_exporter
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=42s
+
+[Install]
+WantedBy=multi-user.target
