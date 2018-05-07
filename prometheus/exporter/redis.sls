@@ -27,7 +27,8 @@ redis_exporter_defaults:
     - name: /etc/default/redis_exporter
     - source: salt://prometheus/files/default-redis_exporter.jinja
     - template: jinja
-    - contents_pillar: prometheus:exporters:redis:args
+    - defaults:
+        config: {{ prometheus.exporters.redis.args }}
 
 redis_exporter_service_unit:
   file.managed:
