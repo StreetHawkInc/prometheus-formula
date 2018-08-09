@@ -23,9 +23,7 @@ pushgateway_defaults:
     - name: /etc/default/pushgateway
     - source: salt://prometheus/files/default-pushgateway.jinja
     - template: jinja
-    - defaults:
-        config_file: {{ prometheus.pushgateway.args.config_file }}
-        storage_path: {{ prometheus.pushgateway.args.storage.path }}
+    - defaults: {{ prometheus.pushgateway}}
 
 pushgateway_storage_path:
   file.directory:
