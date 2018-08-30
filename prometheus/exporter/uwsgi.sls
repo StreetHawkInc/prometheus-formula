@@ -22,14 +22,6 @@ uwsgi_exporter_bin_link:
     - require:
       - archive: uwsgi_exporter_tarball
 
-uwsgi_exporter_defaults:
-  file.managed:
-    - name: /etc/default/uwsgi_exporter
-    - source: salt://prometheus/files/default-uwsgi_exporter.jinja
-    - template: jinja
-    - defaults:
-        config: {{ prometheus.exporters.uwsgi.args }}
-
 uwsgi_exporter_service_unit:
   file.managed:
 {%- if grains.get('init') == 'systemd' %}
@@ -41,6 +33,9 @@ uwsgi_exporter_service_unit:
 {%- endif %}
     - require_in:
       - file: uwsgi_exporter_service
+    - template: jinja
+    - defaults:
+        args: {{ prometheus.exporters.uwsgi.args }}
 
 uwsgi_exporter_service:
   service.running:
@@ -49,5 +44,4 @@ uwsgi_exporter_service:
     - reload: True
     - watch:
       - file: uwsgi_exporter_service_unit
-      - file: uwsgi_exporter_defaults
       - file: uwsgi_exporter_bin_link
