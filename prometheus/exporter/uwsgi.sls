@@ -6,7 +6,7 @@ include:
 
 uwsgi_exporter_tarball:
   archive.extracted:
-    - name: {{ prometheus.exporters.uwsgi.version_path}}
+    - name: {{ prometheus.exporters.uwsgi.install_dir }}
     - source: {{ prometheus.exporters.uwsgi.source }}
     - source_hash: {{ prometheus.exporters.uwsgi.source_hash }}
     - user: {{ prometheus.user }}
