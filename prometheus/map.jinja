@@ -12,3 +12,4 @@
 {% do prometheus.exporters.rabbitmq.update({'version_path': prometheus.exporters.rabbitmq.install_dir ~ "/rabbitmq_exporter-" ~ prometheus.exporters.rabbitmq.version}) %}
 {% do prometheus.exporters.postgres.update({'version_path': prometheus.exporters.postgres.install_dir ~ "/postgres_exporter_" ~ prometheus.exporters.postgres.version}) %}
 {% do prometheus.exporters.redis.update({'version_path': prometheus.exporters.redis.install_dir ~ "/redis_exporter_" ~ prometheus.exporters.redis.version}) %}
+{% do prometheus.exporters.uwsgi.update({'version_path': prometheus.exporters.uwsgi.install_dir ~ "/uwsgi_exporter_" ~ prometheus.exporters.uwsgi.version}) %}
