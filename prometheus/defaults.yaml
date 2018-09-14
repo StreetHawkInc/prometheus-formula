@@ -87,3 +87,9 @@ prometheus:
       source_hash: sha256=5f497acf8d89b9b435203247a5c8d9d3c42c122485dedb01d308fb958c27bfa5
       install_dir: /opt
       args: ''
+    nginx:
+      version: v0.1.2
+      source: salt://bin/nginx_exporter
+      source_hash: sha256=3cdc5dbedbec5db397b873adf8075ea30eab51f6d3fac8c81e52f1a8fff4b43d
+      install_dir: /opt
+      args: ''
