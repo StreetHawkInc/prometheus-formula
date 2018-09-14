@@ -22,6 +22,10 @@ uwsgi_exporter_bin_link:
     - require:
       - archive: uwsgi_exporter_tarball
 
+/etc/default/uwsgi_exporter:
+  file.touch: []
+
+
 uwsgi_exporter_service_unit:
   file.managed:
 {%- if grains.get('init') == 'systemd' %}
