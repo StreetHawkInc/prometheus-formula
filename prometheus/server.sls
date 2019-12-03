@@ -20,7 +20,7 @@ prometheus_bin_link:
 
 prometheus_server_config:
   file.serialize:
-    - name: {{ prometheus.server.args.config_file }}
+    - name: {{ prometheus.server.args['config.file'] }}
     - user: {{ prometheus.user }}
     - group: {{ prometheus.group }}
     - dataset_pillar: prometheus:server:config
