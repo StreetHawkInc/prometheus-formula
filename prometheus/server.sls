@@ -31,8 +31,7 @@ prometheus_defaults:
     - source: salt://prometheus/files/default-prometheus.jinja
     - template: jinja
     - defaults:
-        config_file: {{ prometheus.server.args.config_file }}
-        storage_local_path: {{ prometheus.server.args.storage.local_path }}
+        args: {{ prometheus.server.args }}
         web_console_libraries: {{ prometheus.server.version_path }}/console_libraries
         web_console_templates: {{ prometheus.server.version_path }}/consoles
 
