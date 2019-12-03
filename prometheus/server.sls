@@ -35,10 +35,10 @@ prometheus_defaults:
         web_console_libraries: {{ prometheus.server.version_path }}/console_libraries
         web_console_templates: {{ prometheus.server.version_path }}/consoles
 
-{%- if prometheus.server.args.storage.local_path is defined %}
+{%- if prometheus.server.args['storage.tsdb.path'] %}
 prometheus_storage_local_path:
   file.directory:
-    - name: {{ prometheus.server.args.storage.local_path }}
+    - name: {{ prometheus.server.args['storage.tsdb.path'] }}
     - user: {{ prometheus.user }}
     - group: {{ prometheus.group }}
     - makedirs: True
